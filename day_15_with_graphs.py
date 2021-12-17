@@ -39,14 +39,25 @@ test_cave = make_cave_array(test_cave)
 #%% Utility Functions
 
 def in_bounds(tup,bounds):
+    '''
+    Determines if a tuple fits into a specific bounded box - always bounded below by 0.
+    '''
     return all( a>=0 for a in tup) and all(tup[i]<bounds[i] for i in range(len(tup)))
 
 def add(t1,t2):
+    '''
+    Adds the entries of two-tuples component-wise.
+    '''
     return tuple(t1[i] + t2[i] for i in range(len(t1)))
 
 #%% Functions to build the weighted directed graphs
 
 def edges_from(tup,weights):
+    '''
+    Given a tuple, returns a list of all edges from that tuple along with the weights of those edges.
+    The weights are given in a grid each entry is the weight of an edge entering the node labeled by 
+    its coordinate in the grid. 
+    '''
     to_return = []
     for d in [(1,0),(0,1),(-1,0),(0,-1)]:
         new = add(tup,d)
