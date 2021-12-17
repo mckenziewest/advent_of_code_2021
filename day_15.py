@@ -40,8 +40,6 @@ def get_first_path(cave_scores):
     v1 = min(sum(cave_scores[0,:i+1]) + sum(cave_scores[:,i]) + sum(cave_scores[i:,-1]) for i in range(cave_scores.shape[1]))
     v2 = min(sum(cave_scores.transpose()[0,:i+1]) + sum(cave_scores.transpose()[:,i]) + sum(cave_scores.transpose()[i:,-1]) for i in range(cave_scores.shape[0]))
     return min(v1,v2)
-def get_score(path,cave):
-    dir_dict = {"N":(0,1),"E":(1,0),"S":(0,-1),"W":(-1,0)}
     
 
 start_paths = [[(0,0),(1,0)],[(0,0),(0,1)]]
